@@ -1,0 +1,23 @@
+<table class="table table-striped">
+    <thead>
+    <tr class="table-dark">
+        <th scope="col">Title</th>
+        <th scope="col">Director</th>
+        <th scope="col">Year</th>
+        <th scope="col">Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let movie of movies">
+        <td>{{movie.title}}</td>
+        <td>{{movie.director}}</td>
+        <td>{{movie.year}}</td>
+        <td>
+          <button
+            type="button" class="btn btn-primary" (click)="onDetailsClick(movie.id)">Details</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
