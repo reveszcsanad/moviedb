@@ -1,0 +1,41 @@
+.page-container {
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+  margin: 0 auto;
+}
+
+.poster {
+  margin: 0 auto;
+  height: 80vh;
+}
+
+.img {
+  filter: brightness(30%);
+  height: 80vh;
+  margin: 0 auto;
+}
+
+.details {
+  position: absolute;
+  width: 800px;
+  height: 40%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -15%);
+  -ms-transform: translate(-50%, -15%);
+  transform: translate(-50%, -15%);
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.title {
+  font-size: 48px;
+}
+
+.rating {
+  color: #985d6c;
+}

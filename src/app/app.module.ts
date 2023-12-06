@@ -7,12 +7,16 @@ import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MovieFormComponent } from './movie-form/movie-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieListComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    NavbarComponent,
+    MovieFormComponent
   ],
   imports: [
     BrowserModule,

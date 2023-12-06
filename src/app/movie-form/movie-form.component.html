@@ -1,0 +1,158 @@
+<div>
+  <h3>Movie Form</h3>
+  <hr/>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <label
+        for="title"
+        class="form-label"
+        [ngClass]="{'text-danger': form.get('title')?.invalid && form.get('title')?.touched}"
+      >
+        Title:
+      </label>
+      <input
+        type="text"
+        id="title"
+        formControlName="title"
+        name="title"
+        placeholder="Title"
+        class="form-control"
+        [ngClass]="{'is-invalid': form.get('title')?.invalid && form.get('title')?.touched}"
+      >
+      <small
+        *ngIf="form.get('title')?.invalid && form.get('title')?.touched"
+        class="text-danger"
+      >
+        Please enter a title!
+      </small>
+    </div>
+
+    <div>
+      <label
+        for="director"
+        class="form-label"
+        [ngClass]="{'text-danger': form.get('director')?.invalid && form.get('director')?.touched}"
+      >
+        Director:
+      </label>
+      <input
+        type="text"
+        id="director"
+        formControlName="director"
+        name="director director"
+        placeholder="Name"
+        class="form-control"
+        [ngClass]="{'is-invalid': form.get('director')?.invalid && form.get('director')?.touched}"
+
+      >
+      <small
+        *ngIf="form.get('director')?.invalid && form.get('director')?.touched"
+        class="text-danger"
+      >
+        Please enter the name of a director!
+      </small>
+    </div>
+
+    <div>
+      <label
+        for="year"
+        class="form-label"
+        [ngClass]="{'text-danger': form.get('year')?.invalid && form.get('year')?.touched || form.get('year')?.errors?.['serverError']}"
+      >
+        Year:
+      </label>
+      <input
+        type="number"
+        id="year"
+        formControlName="year"
+        name="year"
+        placeholder="Year of release"
+        class="form-control"
+        [ngClass]="{'is-invalid': form.get('year')?.invalid && form.get('year')?.touched}"
+      >
+      <small
+        *ngIf="form.get('year')?.invalid && form.get('year')?.touched"
+        class="text-danger"
+      >
+        Please enter the release date of a movie!
+      </small>
+    </div>
+
+    <div>
+      <label
+        [ngClass]="{'text-danger': form.get('genres')?.invalid && form.get('genres')?.touched}"
+      >
+        Genres:
+      </label>
+      <select
+        [size]="genres.length + 1"
+        multiple
+        id="genres"
+        formControlName="genres"
+        name="genres"
+        class="form-control form-select"
+        [ngClass]="{'is-invalid': form.get('genres')?.invalid && form.get('genres')?.touched}"
+      >
+        <option value=null disabled>
+          Please choose minimum 1 and maximum 3 genres:
+        </option>
+        <option *ngFor="let genre of genres" value="{{genre.name}}">
+          {{genre.displayName}}
+        </option>
+      </select>
+      <small
+        *ngIf="form.get('genres')?.invalid && form.get('genres')?.touched"
+        class="text-danger"
+      >
+        Please give maximum 3 genres
+      </small>
+    </div>
+
+    <div>
+      <span
+        class="form-label"
+        [ngClass]="{'text-danger': form.get('rating')?.invalid && form.get('rating')?.touched}"
+      >
+      Ratings:
+      </span>
+      <div *ngFor="let rating of ratings" class="form-label">
+        <div>
+          <label>
+            <input
+              type="radio"
+              formControlName="rating"
+              name="rating"
+              [value]="rating.name"
+              [ngClass]="{'is-invalid': form.get('rating')?.invalid && form.get('rating')?.touched}"
+            >
+            {{rating.displayName}}
+          </label>
+        </div>
+      </div>
+      <small
+        *ngIf="form.get('rating')?.invalid && form.get('rating')?.touched"
+        class="text-danger"
+      >
+        Please enter a rating!
+      </small>
+    </div>
+
+    <div>
+      <label
+        for="posterUrl"
+        class="form-label">
+        Poster URL:
+      </label>
+      <input
+        type="text"
+        id="posterUrl"
+        formControlName="posterUrl"
+        name="posterUrl"
+        class="form-control"
+      >
+    </div>
+
+    <button [disabled]="form.invalid" type="submit">Submit</button>
+  </form>
+</div>

@@ -1,1 +1,18 @@
-<p>movie-details works!</p>
+<div *ngIf="movieDetails" class="page-container">
+  <div class="poster">
+    <img
+      [src]="movieDetails.posterUrl ? movieDetails.posterUrl : '../../assets/no_image_available.jpg'"
+      alt="The poster of the movie"
+      title="Poster"
+    >
+  </div>
+  <div class="details">
+    <h1 class="title">{{movieDetails.title}}</h1>
+    <p>{{movieDetails.year}}</p>
+    <p>
+      <span *ngFor="let genre of movieDetails?.genres; let isLast = last">{{genre}}{{isLast ? '' : ', '}}></span>
+    </p>
+    <p>Directed by <strong>{{movieDetails.director}}</strong></p>
+    <p class="rating">{{movieDetails.rating}}</p>
+  </div>
+</div>
